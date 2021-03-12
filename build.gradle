@@ -1,19 +1,28 @@
 plugins {
     id 'java'
+    id 'java-gradle-plugin'
 }
 
 group 'nl.voidgroup.gradle.plugin'
 version '0.0.1-dev-001'
+
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
 }
 
-test {
-    useJUnitPlatform()
+gradlePlugin {
+    plugins {
+        main {
+            id = 'nl.voidgroup.gradle.bukkit-plugin-helper'
+            implementationClass = 'nl.voidgroup.gradle.bukkit-plugin-helper.BukkitPluginHelper'
+        }
+    }
 }
