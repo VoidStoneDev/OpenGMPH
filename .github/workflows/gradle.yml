@@ -1,11 +1,10 @@
 name: Gradle
-
-on: [push]
-
+on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    strategy:
+      fail-fast: false
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.11
@@ -14,3 +13,5 @@ jobs:
           java-version: 1.11
       - name: Build with Gradle
         run: ./gradlew build
+      - name: Build Javadoc with Gradle
+        run: ./gradlew javadoc --warning-mode=all
