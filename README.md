@@ -1,1 +1,1 @@
-# GradleMinecraftPluginHelper
+# OpenGMPH
