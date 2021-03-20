@@ -13,7 +13,7 @@ public class MinecraftPluginName implements MinecraftDataType {
 
     public MinecraftPluginName(String pluginName) {
         stringVersion = Util.requireNonNull(pluginName, "pluginName cannot be null");
-        if(!pattern.matcher(pluginName).matches()) throw new InvalidArgumentException("pluginName is invalid, " + stringVersion + " must match '" + pattern.pattern() + "'");
+        if(!pattern.matcher(pluginName).matches()) throw new InvalidArgumentException("pluginName is invalid, '" + stringVersion + "' must match '" + pattern.pattern() + "'");
     }
 
 
