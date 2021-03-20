@@ -20,10 +20,9 @@ public class MinecraftPluginName implements MinecraftDataType {
     @Override
     public boolean equals(MinecraftDataType obj) {
         if(obj == null) return false;
-        if(obj instanceof MinecraftPluginName) return false;
+        if(!(obj instanceof MinecraftPluginName)) return false;
         MinecraftPluginName cObj = (MinecraftPluginName) obj;
-        if(!stringVersion.equals(cObj.stringVersion));
-        return true;
+        return stringVersion.equals(cObj.stringVersion);
     }
     @Override
     public MinecraftDataType clone() throws CloneNotSupportedException {
