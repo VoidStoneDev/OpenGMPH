@@ -13,3 +13,12 @@ java {
     withSourcesJar()
     withJavadocJar()
 }
+
+gradlePlugin {
+    plugins {
+        main {
+            id = 'nl.voidgroup.opengmph'
+            implementationClass = 'nl.voidgroup.gradle.plugin.opengmph.OpenGMPH'
+        }
+    }
+}
