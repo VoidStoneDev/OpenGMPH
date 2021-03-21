@@ -9,11 +9,11 @@ public class MinecraftPluginName implements MinecraftDataType {
 
     public static final Pattern pattern = Pattern.compile("^[A-Za-z0-9_.-]+$");
 
-    private final String stringVersion;
+    private final String stringName;
 
     public MinecraftPluginName(String pluginName) {
-        stringVersion = Util.requireNonNull(pluginName, "pluginName cannot be null");
-        if(!pattern.matcher(pluginName).matches()) throw new InvalidArgumentException("pluginName is invalid, '" + stringVersion + "' must match '" + pattern.pattern() + "'");
+        stringName = Util.requireNonNull(pluginName, "pluginName cannot be null");
+        if(!pattern.matcher(pluginName).matches()) throw new InvalidArgumentException("pluginName is invalid, '" + stringName + "' must match '" + pattern.pattern() + "'");
     }
 
 
@@ -22,7 +22,7 @@ public class MinecraftPluginName implements MinecraftDataType {
         if(obj == null) return false;
         if(!(obj instanceof MinecraftPluginName)) return false;
         MinecraftPluginName cObj = (MinecraftPluginName) obj;
-        return stringVersion.equals(cObj.stringVersion);
+        return stringName.equals(cObj.stringName);
     }
     @Override
     public MinecraftDataType clone() throws CloneNotSupportedException {
@@ -30,6 +30,6 @@ public class MinecraftPluginName implements MinecraftDataType {
     }
     @Override
     public String getString() {
-        return stringVersion;
+        return stringName;
     }
 }
