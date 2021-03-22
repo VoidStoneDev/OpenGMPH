@@ -14,11 +14,21 @@ java {
     withJavadocJar()
 }
 
+
+
 gradlePlugin {
     plugins {
         main {
             id = 'nl.voidgroup.opengmph'
             implementationClass = 'nl.voidgroup.gradle.plugin.opengmph.OpenGMPH'
         }
+    }
+}
+jar {
+    manifest {
+        attributes('Plugin-Id': gradlePlugin.plugins.getByName("main").getId(),
+                'Name': rootProject.name,
+                'Group-Id': group,
+                'Version': project.getVersion())
     }
 }
